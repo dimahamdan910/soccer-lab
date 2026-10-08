@@ -1,0 +1,792 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #07110d;
+    color: white;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   PROGRESS BAR
+========================= */
+
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: rgba(255,255,255,0.15);
+    z-index: 1000;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #8eea6b;
+    transition: width 0.1s ease;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+    position: fixed;
+    top: 25px;
+    left: 40px;
+    right: 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 100;
+}
+
+.logo {
+    font-size: 12px;
+    letter-spacing: 4px;
+    font-weight: bold;
+}
+
+.nav-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: #8eea6b;
+    transform: scale(1.5);
+}
+
+
+/* =========================
+   GENERAL SECTIONS
+========================= */
+
+.story-section {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.chapter,
+.training,
+.transformation,
+.recruiting,
+.finale,
+.ending {
+    display: flex;
+    align-items: center;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    justify-content: center;
+    text-align: center;
+    background:
+        linear-gradient(
+            rgba(3,15,10,0.55),
+            rgba(3,15,10,0.9)
+        ),
+        radial-gradient(
+            circle at center,
+            #315e39,
+            #07110d 70%
+        );
+}
+
+.hero-background {
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    left: -10%;
+    top: -10%;
+
+    background:
+        linear-gradient(
+            transparent 49%,
+            rgba(255,255,255,0.12) 50%,
+            transparent 51%
+        );
+
+    background-size: 100px 100px;
+
+    transform: rotate(-8deg) scale(1.2);
+    transition: transform 0.1s linear;
+}
+
+.hero-ball {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+
+    right: 10%;
+    bottom: 12%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            white,
+            #bbb
+        );
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.5);
+
+    opacity: 0.8;
+
+    transition: transform 0.2s ease-out;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 5;
+    max-width: 900px;
+}
+
+.small-title {
+    font-size: 12px;
+    letter-spacing: 5px;
+    color: #8eea6b;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: clamp(60px, 11vw, 150px);
+    line-height: 0.85;
+    letter-spacing: -7px;
+}
+
+h1 span,
+h2 span {
+    display: block;
+    color: #8eea6b;
+}
+
+.hero-text {
+    max-width: 500px;
+    margin: 40px auto;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #d1d8d3;
+}
+
+.scroll-indicator {
+    margin-top: 70px;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.arrow {
+    margin-top: 15px;
+    font-size: 28px;
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+
+}
+
+
+/* =========================
+   CHAPTER CONTENT
+========================= */
+
+.chapter-content,
+.training-content,
+.recruiting-content {
+    width: min(90%, 650px);
+    margin-left: 12%;
+    position: relative;
+    z-index: 5;
+}
+
+.age {
+    color: #8eea6b;
+    letter-spacing: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: clamp(45px, 7vw, 100px);
+    line-height: 0.9;
+    letter-spacing: -4px;
+    margin: 25px 0 35px;
+}
+
+.chapter p,
+.training p,
+.recruiting p,
+.transformation p,
+.final-story {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #ccd5ce;
+    margin-bottom: 20px;
+    max-width: 600px;
+}
+
+.quote {
+    border-left: 3px solid #8eea6b;
+    padding-left: 25px;
+    margin-top: 40px;
+
+    font-size: 24px;
+    font-style: italic;
+    color: white;
+}
+
+
+/* =========================
+   CHAPTER ONE
+========================= */
+
+.chapter-one {
+    background:
+        linear-gradient(
+            90deg,
+            #10261a,
+            #07110d
+        );
+}
+
+.field-lines {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+
+    right: -150px;
+
+    border: 2px solid rgba(255,255,255,0.15);
+    border-radius: 50%;
+
+    transform: rotate(20deg);
+}
+
+.ball-one {
+    position: absolute;
+
+    width: 130px;
+    height: 130px;
+
+    right: 22%;
+    bottom: 25%;
+
+    background: white;
+    border-radius: 50%;
+
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+
+    transition: transform 0.2s ease;
+}
+
+
+/* =========================
+   CHAPTER TWO
+========================= */
+
+.chapter-two {
+    background: #0b1912;
+}
+
+.parallax-circle {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(142,234,107,0.25);
+}
+
+.circle-one {
+    width: 600px;
+    height: 600px;
+    right: -200px;
+}
+
+.circle-two {
+    width: 300px;
+    height: 300px;
+    right: 100px;
+}
+
+.player-silhouette {
+    position: absolute;
+    right: 18%;
+    top: 25%;
+
+    font-size: 150px;
+
+    opacity: 0.12;
+
+    transition: transform 0.2s ease-out;
+}
+
+
+/* =========================
+   CHAPTER THREE
+========================= */
+
+.chapter-three {
+    background:
+        linear-gradient(
+            120deg,
+            #07110d,
+            #16271d
+        );
+}
+
+.stadium-layer {
+    position: absolute;
+    right: -10%;
+    bottom: -20%;
+
+    width: 700px;
+    height: 700px;
+
+    border-radius: 50%;
+
+    border: 2px solid rgba(255,255,255,0.08);
+
+    transition: transform 0.2s ease-out;
+}
+
+.layer-back {
+    transform: scale(1.2);
+}
+
+.layer-middle {
+    transform: scale(0.8);
+}
+
+
+/* =========================
+   TRAINING
+========================= */
+
+.training {
+    background:
+        linear-gradient(
+            rgba(4,12,8,0.8),
+            rgba(4,12,8,0.95)
+        ),
+        repeating-linear-gradient(
+            90deg,
+            #193322 0px,
+            #193322 2px,
+            transparent 2px,
+            transparent 100px
+        );
+}
+
+.training-content {
+    margin: auto;
+    width: min(90%, 900px);
+}
+
+.training-list {
+    margin-top: 50px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.training-item {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    padding: 22px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+
+    transition: transform 0.3s ease;
+}
+
+.training-item:hover {
+    transform: translateX(15px);
+}
+
+.training-item span {
+    color: #8eea6b;
+    font-size: 12px;
+}
+
+.training-item p {
+    margin: 0;
+}
+
+.bottom-text {
+    margin-top: 40px;
+}
+
+
+/* =========================
+   TRANSFORMATION
+========================= */
+
+.transformation {
+    background: #08120d;
+    justify-content: center;
+}
+
+.transformation .chapter-content {
+    margin: 0;
+    width: min(90%, 850px);
+}
+
+.glow {
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    border-radius: 50%;
+
+    background: #8eea6b;
+
+    filter: blur(180px);
+
+    opacity: 0.08;
+
+    right: 10%;
+    top: 10%;
+}
+
+.stats {
+    display: flex;
+    gap: 15px;
+    margin: 50px 0;
+}
+
+.stat {
+    padding: 25px;
+    border: 1px solid rgba(255,255,255,0.15);
+
+    flex: 1;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+.stat:hover {
+    transform: translateY(-10px);
+    background: rgba(142,234,107,0.08);
+}
+
+.stat strong {
+    display: block;
+    font-size: 20px;
+    color: #8eea6b;
+}
+
+.stat span {
+    display: block;
+    margin-top: 8px;
+    color: #87948a;
+    font-size: 12px;
+}
+
+
+/* =========================
+   RECRUITING
+========================= */
+
+.recruiting {
+    background:
+        radial-gradient(
+            circle at 70% 50%,
+            #284a32,
+            #07110d 60%
+        );
+}
+
+.recruiting-content {
+    margin-left: 10%;
+}
+
+.big-dream {
+    font-size: clamp(40px, 6vw, 80px);
+    font-weight: bold;
+    line-height: 0.9;
+    margin: 35px 0;
+}
+
+.big-dream span {
+    color: #8eea6b;
+}
+
+
+/* PHONE */
+
+.phone {
+    position: absolute;
+
+    right: 10%;
+    top: 50%;
+
+    transform:
+        translateY(-50%)
+        rotate(8deg);
+
+    width: 280px;
+    height: 550px;
+
+    border: 10px solid #151b17;
+    border-radius: 35px;
+
+    background: #202921;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.6);
+
+    transition: transform 0.2s ease-out;
+}
+
+.phone-screen {
+    height: 100%;
+    padding: 35px 20px;
+    background: #f4f6f3;
+    color: #111;
+    border-radius: 25px;
+}
+
+.email-top {
+    font-size: 10px;
+    color: #555;
+    letter-spacing: 2px;
+}
+
+.email-message {
+    margin-top: 80px;
+}
+
+.email-message small {
+    color: #568c4a;
+    font-weight: bold;
+}
+
+.email-message h3 {
+    margin: 15px 0;
+    font-size: 24px;
+}
+
+.email-message p {
+    color: #555;
+}
+
+
+/* =========================
+   FINALE
+========================= */
+
+.finale {
+    justify-content: center;
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #3d7448,
+            #07110d 65%
+        );
+}
+
+.finale-bg {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            transparent 70%,
+            rgba(0,0,0,0.6)
+        );
+}
+
+.final-content {
+    position: relative;
+    z-index: 5;
+    width: min(90%, 900px);
+}
+
+.final-content h2 {
+    font-size: clamp(70px, 12vw, 160px);
+}
+
+.commitment {
+    margin: 50px auto;
+
+    padding: 40px;
+
+    border: 1px solid rgba(255,255,255,0.25);
+
+    max-width: 500px;
+
+    background: rgba(0,0,0,0.2);
+
+    backdrop-filter: blur(10px);
+}
+
+.star {
+    color: #8eea6b;
+    font-size: 40px;
+}
+
+.commitment p {
+    letter-spacing: 4px;
+    font-size: 10px;
+    margin: 15px 0;
+}
+
+.commitment h3 {
+    font-size: 35px;
+}
+
+
+/* =========================
+   ENDING
+========================= */
+
+.ending {
+    justify-content: center;
+    text-align: center;
+    background: #050b07;
+}
+
+.ending-content {
+    width: min(90%, 800px);
+}
+
+.ending-content h2 {
+    font-size: clamp(60px, 10vw, 130px);
+}
+
+.ending-content > p:not(.small-title) {
+    max-width: 600px;
+    margin: 20px auto;
+
+    color: #aeb9b0;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.final-quote {
+    margin: 60px auto;
+
+    max-width: 650px;
+
+    font-size: 25px;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+.restart {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    margin-top: 70px;
+
+    font-size: 25px;
+
+    color: #8eea6b;
+
+    animation: bounce 1.5s infinite;
+}
+
+.restart span {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: white;
+}
+
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(70px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 800px) {
+
+    nav {
+        left: 20px;
+        right: 20px;
+    }
+
+    .nav-dots {
+        display: none;
+    }
+
+    .chapter-content,
+    .training-content,
+    .recruiting-content {
+        margin-left: 8%;
+    }
+
+    .phone {
+        opacity: 0.15;
+        right: -80px;
+    }
+
+    .stats {
+        flex-direction: column;
+    }
+
+    .hero-ball {
+        width: 100px;
+        height: 100px;
+        right: 5%;
+    }
+
+}
